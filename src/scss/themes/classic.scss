@@ -78,3 +78,113 @@
         }
     }
 }
+
+@media (max-width: 480px) {
+    .pcr-app[data-theme='classic'] {
+        width: auto !important;
+        min-width: 200px;
+        padding: 0.6em;
+
+        .pcr-selection {
+            flex-wrap: wrap;
+
+            .pcr-color-palette {
+                width: 100%;
+                order: -1;
+                margin-bottom: 0.75em;
+            }
+
+            .pcr-color-preview {
+                width: 100%;
+                height: 2em;
+                flex-direction: row;
+                margin-right: 0;
+                margin-bottom: 0.75em;
+
+                .pcr-last-color,
+                .pcr-current-color {
+                    width: 50%;
+                    height: 100%;
+                }
+
+                .pcr-last-color {
+                    border-radius: $border-radius-mid 0 0 $border-radius-mid;
+                }
+
+                .pcr-current-color {
+                    border-radius: 0 $border-radius-mid $border-radius-mid 0;
+                }
+            }
+
+            .pcr-color-chooser,
+            .pcr-color-opacity {
+                width: 100%;
+                height: 1em;
+                margin-left: 0;
+                margin-bottom: 0.5em;
+                flex-direction: row;
+
+                .pcr-slider {
+                    width: 100%;
+                    height: 100%;
+                }
+
+                .pcr-picker {
+                    top: 50%;
+                    left: auto;
+                    transform: translate(-50%, -50%);
+                }
+            }
+
+            .pcr-color-chooser .pcr-slider {
+                background: colorRainbow(to right);
+            }
+
+            .pcr-color-opacity .pcr-slider {
+                background: linear-gradient(to right, transparent, black), $icon-transparency;
+                background-size: 100%, 0.25em;
+            }
+        }
+    }
+
+    .pcr-app .pcr-interaction {
+        flex-direction: column;
+        align-items: stretch;
+
+        > * {
+            margin: 0.2em 0;
+        }
+
+        .pcr-result {
+            min-width: auto;
+        }
+
+        button {
+            min-height: 44px;
+            font-size: 1em;
+        }
+    }
+}
+
+@media (max-width: 320px) {
+    .pcr-app[data-theme='classic'] {
+        padding: 0.4em;
+
+        .pcr-selection {
+            .pcr-color-palette {
+                height: 6em;
+            }
+        }
+    }
+
+    .pcr-app .pcr-swatches {
+        @supports (display: grid) {
+            grid-template-columns: repeat(auto-fit, 1.5em);
+        }
+
+        > button {
+            width: calc(1.5em - 4px);
+            height: calc(1.5em - 4px);
+        }
+    }
+}

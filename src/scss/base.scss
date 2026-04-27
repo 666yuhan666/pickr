@@ -99,11 +99,15 @@
     box-shadow: $box-shadow-app;
     left: 0;
     top: 0;
+    box-sizing: border-box;
+    max-width: calc(100vw - 20px);
+    max-height: calc(100vh - 20px);
 
     &.visible {
         transition: opacity 0.3s;
         visibility: visible;
         opacity: 1;
+        transform: none !important;
     }
 
     .pcr-swatches {
